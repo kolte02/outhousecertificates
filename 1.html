@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>MySocial</h1>
+        <nav>
+            <ul>
+                <li class="active">Home</li>
+                <li>Profile</li>
+                <li>Messages</li>
+                <li>Settings</li>
+            </ul>
+        </nav>
+    </header>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+nav li.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post {
+    background: #f4f4f4;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: #fff;
+}
+
+@media (min-width: 600px) {
+    nav ul {
+        justify-content: flex-start;
+    }
+
+    main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .post {
+        flex: 0 1 calc(48% - 10px);
+    }
+}
+
+</style>
+    
+    <main id="content">
+        <section class="post">
+            <h2>User Post Title</h2>
+            <p>This is a sample post content. Feel free to interact!</p>
+        </section>
+        <section class="post">
+            <h2>Another Post Title</h2>
+            <p>More engaging content here!</p>
+        </section>
+        <section class="post">
+            <h2>More Updates</h2>
+            <p>Stay tuned for more updates!</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 MySocial</p>
+    </footer>
+
+    <script >
+document.addEventListener('DOMContentLoaded', () => {
+    let startX;
+
+    const content = document.getElementById('content');
+
+    content.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    content.addEventListener('touchmove', (e) => {
+        if (!startX) return;
+
+        const endX = e.touches[0].clientX;
+        const diffX = startX - endX;
+
+        if (Math.abs(diffX) > 30) {
+            if (diffX > 0) {
+                // Swipe left
+                console.log('Swiped Left');
+                // Implement your left swipe action
+            } else {
+                // Swipe right
+                console.log('Swiped Right');
+                // Implement your right swipe action
+            }
+            startX = null; // Reset startX
+        }
+    });
+});
+
+</script>
+</body>
+</html>
